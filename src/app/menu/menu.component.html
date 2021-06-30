@@ -1,20 +1,26 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="heading">BookAppStore</div>
-       
-
+        <div class="heading">BookAppStore </div>&nbsp;
         <ul class="navbar-nav">
-            <!-- <li><a  class="nav-link" routerLink="/shop"  >Shop</a></li> -->
+            <li><a *ngIf="loginService.isUserLoggedIn()" class="nav-link" routerLink="/shop">Books</a></li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                <a *ngIf="loginService.isUserLoggedIn() && loginService.isUserAdmin()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Admin
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a routerLink="/admin/users" class="dropdown-item">Users</a> -->
+                    <a routerLink="/admin/users" class="dropdown-item">Users</a>
                     <a routerLink="/admin/books" class="dropdown-item">Books</a>
                 </div>
             </li>
+
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Favourites</a></li>
+            <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
+
+
         </ul>
+
+        <!-- <button>logout</button> -->
     </nav>
 </header>

@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 style="text-align: center;background-color: salmon;">Login</h1>
+    <div style="text-align: center;margin-top: 60px;">
+        <form [formGroup]="userForm">
+            User Name : <input type="text" name="username" formControlName="username"><br>
+            <div *ngIf="userForm.controls['username'].invalid && userForm.controls['username'].touched" class="alert alert-danger">
+                <div class="required" *ngIf="userForm.controls['username'].errors?.required">
+                    User Name is required.
+                </div><br/>
+            </div><br /> Password : &nbsp;&nbsp;<input type="password" name="password" formControlName="password">
+            <div *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched" class="alert alert-danger">
+                <div class="required" *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].errors?.required">
+                    Password is required.
+                </div><br />
+            </div>
+            <div class="required" *ngIf="userForm.controls['password'].errors?.pattern">
+                . Password Should contain At least 8 characters in length . Lowercase letter . Uppercase letters . Numbers . Special characters
+            </div>
+        </form><br><br>
+        <button style="height: 30px;width:60px;font-size: 18px;height: 40px;" (click)="checkLogin()" class="class1">
+            Login
+          </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button style="height: 30px;width:60px;font-size: 18px;height: 40px;" type="reset">
+            Reset
+          </button>
+    </div>
+</div>

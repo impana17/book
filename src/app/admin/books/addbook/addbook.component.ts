@@ -32,11 +32,11 @@ export class AddbookComponent implements OnInit {
     console.log(event);
     this.selectedFile = event.target.files[0];
 
-    let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = (event2) => {
-      this.imgURL = reader.result;
-    };
+    // let reader = new FileReader();
+    // reader.readAsDataURL(event.target.files[0]);
+    // reader.onload = (event2) => {
+    //   this.imgURL = reader.result;
+    // };
 
   }
 

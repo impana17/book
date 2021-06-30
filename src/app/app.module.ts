@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import { BooksComponent } from './admin/books/books.component';
 import { AddbookComponent } from './admin/books/addbook/addbook.component';
 import { ViewbookComponent } from './admin/books/viewbook/viewbook.component';
 import { ShopbookComponent } from './shopbook/shopbook.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,16 @@ import { ShopbookComponent } from './shopbook/shopbook.component';
     BooksComponent,
     AddbookComponent,
     ViewbookComponent,
-    ShopbookComponent
+    ShopbookComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

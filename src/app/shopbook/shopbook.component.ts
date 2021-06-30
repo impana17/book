@@ -14,6 +14,7 @@ export class ShopbookComponent implements OnInit {
   booksRecieved: Array<Book>;
 
   cartBooks: any;
+  enableFavourites:boolean=false;
 
   constructor(private router: Router, private httpClientService: HttpClientService) { }
 
@@ -30,6 +31,9 @@ export class ShopbookComponent implements OnInit {
     } else {
       this.cartBooks = [];
     }
+
+    // localStorage.clear();
+
   }
 
   // we will be taking the books response returned from the database
@@ -58,14 +62,13 @@ export class ShopbookComponent implements OnInit {
       return book.id === +bookId;
     });
     let cartData = [];
+
     //retrieve cart data from localstorage
     let data = localStorage.getItem('cart');
-    console.log(data);
     //prse it to json 
     if (data !== null) {
       cartData = JSON.parse(data);
     }
-    console.log('hii');
     // add the selected book to cart data
     cartData.push(book);
     //updated the cartBooks
@@ -81,12 +84,14 @@ export class ShopbookComponent implements OnInit {
   }
 
   goToCart() {
-    this.router.navigate(['/cart']);
+    this.router.navigate(['/shop']);
   }
 
   emptyCart() {
     this.cartBooks = [];
     localStorage.clear();
+   
   }
+
 
 }
