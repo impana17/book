@@ -2,27 +2,50 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClientService } from '../service/http-client.service';
 import { Book } from '../model/Book';
+import { MatDialog } from '@angular/material';
+import { DialogOverviewExampleDialogComponent } from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
+export interface DialogData {
+  favourites: string;
+  name: string;
+}
 @Component({
   selector: 'app-shopbook',
   templateUrl: './shopbook.component.html',
   styleUrls: ['./shopbook.component.css']
 })
+
+
 export class ShopbookComponent implements OnInit {
 
   books: Array<Book>;
   booksRecieved: Array<Book>;
 
   cartBooks: any;
+  animal:string;
   enableFavourites:boolean=false;
 
-  constructor(private router: Router, private httpClientService: HttpClientService) { }
+  constructor(private router: Router, private httpClientService: HttpClientService,public dialog: MatDialog) { }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
+      width: '250px',
+      data: { animal: this.animal}});
+     this.cartBooks=[];
+     this.enableFavourites=false;
+     localStorage.clear();
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 
 
   ngOnInit() {
     this.httpClientService.getBooks().subscribe(
       response => this.handleSuccessfulResponse(response),
     );
+    // this.enableFavourites=false;
     //from localstorage retrieve the cart item
     let data = localStorage.getItem('cart');
     //if this is not null convert it to JSON else initialize it as empty
@@ -77,21 +100,30 @@ export class ShopbookComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(cartData));
     //make the isAdded field of the book added to cart as true
     book.isAdded = true;
+    this.enableFavourites=true;
   }
 
   updateCartData(cartData) {
     this.cartBooks = cartData;
+    // this.enableFavourites=false;
   }
 
   goToCart() {
+    this.openDialog();
+    this.enableFavourites=true;
     this.router.navigate(['/shop']);
   }
 
   emptyCart() {
     this.cartBooks = [];
+    this.enableFavourites=false;
     localStorage.clear();
    
   }
 
 
 }
+function DialogOverviewExampleDialog(DialogOverviewExampleDialog: any, arg1: { width: string; }) {
+  throw new Error('Function not implemented.');
+}
+

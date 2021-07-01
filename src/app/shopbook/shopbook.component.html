@@ -22,7 +22,10 @@
                             </div>
                         </li>
                         <hr>
-                        <li><a class="btn btn-small btn-success" role="button" (click)="goToCart()">View Favourites</a></li>
+                        <li *ngIf="cartBooks.length > 0"><a class="btn btn-small btn-success" mat-raised-button (click)="openDialog()">Issue Order</a></li>
+                        <div *ngIf="animal">
+                            issued.
+                        </div>
                         <br>
                         <li *ngIf="cartBooks.length > 0">
                             <a class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Empty Favourites</a></li>
@@ -32,9 +35,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 
 <div class="container row">
@@ -48,7 +48,7 @@
                     <p style="margin-left: 60px">{{book.author}}</p>
                 </div>
                 <div class="offset-md-4 col-md-4">
-                    <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)" [disabled]="book.isAdded===true">Add to Favourites</button>
+                    <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)" [disabled]="book.isAdded===true && enableFavourites">Add to Favourites</button>
                 </div>
             </div>
 

@@ -15,6 +15,9 @@ import { ViewbookComponent } from './admin/books/viewbook/viewbook.component';
 import { ShopbookComponent } from './shopbook/shopbook.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material';
+import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +31,19 @@ import { LogoutComponent } from './logout/logout.component';
     ViewbookComponent,
     ShopbookComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    DialogOverviewExampleDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
+  entryComponents: [DialogOverviewExampleDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
