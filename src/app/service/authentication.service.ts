@@ -114,13 +114,12 @@ export class AuthenticationService implements OnInit {
   isUserAdmin() {
     let user = sessionStorage.getItem('username');
     let type, flag;
-    console.log("json-1"+this.l.length);
+    // console.log("json-1"+this.l.length);
     // this.json=JSON.stringify(this.l);
     // this.checkuser();
     for (var i = 0; i < this.l.length; i++) {
       if (user === this.l[i].name) {
         type = this.l[i].type;
-        console.log("hi" + type);
         if (type === 'admin') {
           flag = true;
         } else {
@@ -128,7 +127,6 @@ export class AuthenticationService implements OnInit {
         }
       }
     }
-    console.log("12 " + this.flag);
     return flag;
   }
 
