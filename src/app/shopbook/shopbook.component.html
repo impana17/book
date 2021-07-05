@@ -19,18 +19,19 @@
                     <ul class="dropdown-menu dropdown-cart" role="menu">
                         <li *ngFor="let item of cartBooks">
                             <div class="item product-cart-item row">
-                                <div class="col-md-8" *ngIf="item">{{item.name}}</div>
-                                <div class="col-md-4" *ngIf="item"><strong>Rs.{{item.price}}</strong></div>
+                                <div class="col-md-10" *ngIf="item">{{item.name}}</div>
+                                <div class="col-md-6" *ngIf="item"><strong>Rs.{{item.price}}</strong></div>
+                                <!-- <button type="submit" (click)="deleteFavorite(item.id)">undo</button> -->
                             </div>
                         </li>
                         <hr>
-                        <li *ngIf="cartBooks.length > 0"><a class="btn btn-small btn-success" mat-raised-button (click)="openDialog()">Issue Order</a></li>
+                        <li *ngIf="cartBooks.length > 0"><a class="btn btn-small btn-success" mat-raised-button (click)="openDialog()">Add to Cart & Issue Order</a></li>
                         <div *ngIf="animal">
                             issued.
                         </div>
                         <br>
                         <li *ngIf="cartBooks.length > 0">
-                            <a class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Empty Favourites</a></li>
+                            <a class="btn btn-small btn-warning" role="button" (click)="emptyCart()">Remove Favourites</a></li>
                     </ul>
                 </li>
             </ul>
@@ -50,7 +51,9 @@
                     <p style="margin-left: 60px">{{book.author}}</p>
                 </div>
                 <div class="offset-md-4 col-md-4">
-                    <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)" [disabled]="book.isAdded===true && enableFavourites">Add to Favourites</button>
+                    <button class="btn btn-primary btn-sm" (click)="addToCart(book.id)" [disabled]="book.isAdded===true && enableFavourites">Add to Favourites</button>&nbsp;&nbsp;
+                    <button style="margin-right:-60px" class="btn btn-primary btn-sm" type="submit" (click)="deleteFavorite(book.id)">Remove Favourite</button>
+
                 </div>
             </div>
 

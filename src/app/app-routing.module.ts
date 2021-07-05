@@ -11,7 +11,7 @@ import { AuthGaurdService } from './service/auth-gaurd.service';
 const routes: Routes = [
   { path: 'admin/users', component: UsersComponent, canActivate:[AuthGaurdService] },
   { path: 'admin/books', component: BooksComponent,canActivate:[AuthGaurdService] },
-  { path: 'shop', component: ShopbookComponent,canActivate:[AuthGaurdService] },
+  { path: 'books', component: ShopbookComponent,canActivate:[AuthGaurdService] },
   
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
