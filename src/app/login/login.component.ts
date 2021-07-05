@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   username = ''
   password = ''
-  invalidLogin = false
+  invalidLogin = false;
   userForm:FormGroup;
 
   constructor(private router: Router,

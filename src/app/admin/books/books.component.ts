@@ -28,6 +28,7 @@ export class BooksComponent implements OnInit {
     this.httpClientService.getBooks().subscribe(
       response => this.handleSuccessfulResponse(response)
     );
+
     this.activedRoute.queryParams.subscribe(
       (params) => {
         // get the url parameter named action. this can either be add or view.
@@ -52,8 +53,8 @@ export class BooksComponent implements OnInit {
     this.books = new Array<Book>();
     //get books returned by the api call
     this.booksRecieved = response;
+
     for (const book of this.booksRecieved) {
-    
       const bookwithRetrievedImageField = new Book();
       bookwithRetrievedImageField.id = book.id;
       bookwithRetrievedImageField.name = book.name;

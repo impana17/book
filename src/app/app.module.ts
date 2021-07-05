@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -48,3 +48,17 @@ import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// @Component({
+//   selector: 'app-menu',
+//   template:` 
+//     <div class="navbar-brand">
+//     <a class="navbar-item">
+//     <img src ="assets/logo.jpg">
+//     </a>
+//     </div>
+//   `,
+//   styles:[]
+//   // <div></div>
+
+// })

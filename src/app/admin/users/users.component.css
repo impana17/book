@@ -1,0 +1,6 @@
+
+.image{
+    height:100%; width: 100%; background-repeat: repeat-n;
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxpcl_bI57Y_-G758p2lkh9Hxde9kg_iS6vQ&usqp=CAU");
+    background-size: cover;
+}

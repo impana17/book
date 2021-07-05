@@ -5,3 +5,9 @@
 .class1 {
     text-align: center;
 }
+
+.login{
+    height:40em; background-size:cover; width:auto;
+    background-image:url("https://i.pinimg.com/736x/cf/b0/7a/cfb07a2dc2a7bfc3e19fcf4a76464c32.jpg");
+    background-size: cover;
+}

@@ -1,6 +1,8 @@
 <div class="container">
-    <h1 style="text-align: center;background-color: salmon;">Login</h1>
+    <div class="login">
+    <h1 style="text-align: center;background-color: skyblue;">Login</h1>
     <div style="text-align: center;margin-top: 60px;">
+        
         <form [formGroup]="userForm">
             User Name : <input type="text" name="username" formControlName="username"><br>
             <div *ngIf="userForm.controls['username'].invalid && userForm.controls['username'].touched" class="alert alert-danger">
@@ -23,5 +25,6 @@
         <button style="height: 30px;width:60px;font-size: 18px;height: 40px;" type="reset">
             Reset
           </button>
+        </div>
     </div>
 </div>

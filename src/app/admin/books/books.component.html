@@ -1,3 +1,4 @@
+<div class="login">
 <h1>Books Admin</h1>
 <a class="btn btn-primary mb-3" (click)="addBook()">Add New Book</a>
 <div class="container row">
@@ -25,4 +26,5 @@
         <app-viewbook *ngIf="action === 'view'" [book]="selectedBook" (bookDeletedEvent)="refreshData()"></app-viewbook>
         <app-addbook *ngIf="action === 'edit' || action === 'add'" [book]="selectedBook" (bookAddedEvent)="refreshData()"></app-addbook>
     </div>
+</div>
 </div>

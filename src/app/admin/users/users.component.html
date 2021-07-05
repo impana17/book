@@ -1,3 +1,4 @@
+<div class="image">
 <h1>Users Admin</h1>
 <a class="btn btn-primary mb-3" (click)="addUser()">add</a>
 <div class="container row">
@@ -23,4 +24,5 @@
     <app-adduser *ngIf="action === 'add'"  [user]="selectedUser"  (userAddedEvent)="refreshData()"></app-adduser>
     <app-viewuser *ngIf="action === 'view'" [user]="selectedUser" (userDeletedEvent)="refreshData()"></app-viewuser>
   </div>
+</div>
 </div>
